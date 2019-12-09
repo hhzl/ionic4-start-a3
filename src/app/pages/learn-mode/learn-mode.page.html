@@ -7,12 +7,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-<h1>{{ word }}</h1>
+<ion-content>
+<div class="ion-padding">
+
+<ion-buttons slot="end">
+<h1 (click)="listen()">{{ word }}</h1>
+<ion-button  (click)="listen()" size="large">
+<ion-icon name="play"></ion-icon>
+</ion-button>
+</ion-buttons>
+
+
+
 <div><img  src="{{itemImageUrlPath}}{{itemImageFileName}}"></div>
 <h1>{{ translate }}</h1>
 
+</div>
 </ion-content>
+
 
 
 <ion-footer>

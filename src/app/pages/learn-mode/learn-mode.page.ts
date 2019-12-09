@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordsDataService } from '../../services/words-data.service';
 
+declare var LWutils: any;
 
 @Component({
   selector: 'app-learn-mode',
@@ -14,6 +15,10 @@ export class LearnModePage implements OnInit {
   translate : string;
   itemImageFileName : string ; 
   itemImageUrlPath: string = 'assets/data/pictures/';
+
+  itemAudioFileName : string ;
+  itemAudioUrlPath: string = 'assets/data/audio/';
+
 
   service: WordsDataService;
 
@@ -33,6 +38,7 @@ export class LearnModePage implements OnInit {
        this.word = w.word;
        this.translate = w.translate;
        this.itemImageFileName = w.picture;
+       this.itemAudioFileName = w.audio;
   }
 
 
@@ -41,6 +47,19 @@ export class LearnModePage implements OnInit {
        var w = this.service.nextWord();
        this.displayWord(w);
  }
+
+
+
+
+listen() 
+  {
+
+    var hasPlayed = LWutils.playAudio(this.itemAudioUrlPath+this.itemAudioFileName);
+
+    hasPlayed.addEventListener("ended", function() {
+      console.log('sound played!');
+    });
+  }
 
 
 }
