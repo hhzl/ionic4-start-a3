@@ -1,0 +1,10 @@
+#!/bin/bash
+ionic generate service services/wordsData
+
+ionic generate page pages/choose-mode
+ionic generate page pages/learn-mode
+ionic generate page pages/practice-mode
+ionic generate page pages/wordlist
+ionic generate page pages/settings
+ionic generate page pages/about
+
